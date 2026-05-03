@@ -37,11 +37,11 @@ def build_cpi_csv_for_last(years):
     cpi_array += list(filter(lambda x: x['period'] == 'M01', data))
     endYear -= YEARS_PER_BATCH
   
-  cpi_array.sort(key=lambda x: x['year'])
+  cpi_array.sort(key=lambda x: x['year'], reverse=True)
 
   oldest_year = oldest_requested_year
-  if int(cpi_array[0]['year']) > oldest_requested_year:
-    oldest_year = cpi_array[0]['year']
+  if int(cpi_array[-1]['year']) > oldest_requested_year:
+    oldest_year = cpi_array[-1]['year']
     print(f"Oldest entry found was {oldest_year}")
 
   output_path = f"./data/january_cpi_{oldest_year}_to_{current_year}.csv"
@@ -59,7 +59,7 @@ def build_cpi_csv_for_last(years):
 def main():
   parser = argparse.ArgumentParser(description="Generate a CSV of January CPI data.")
     
-  parser.add_argument("-y", "--years", type=int, default=100, help="Number of years to look back from the current year (default: 10)")
+  parser.add_argument("-y", "--years", type=int, default=200, help="Number of years to look back from the current year (default: all)")
 
   args = parser.parse_args()
 
