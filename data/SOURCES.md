@@ -5,4 +5,4 @@
 - [contribution_and_benefit_base.csv](https://www.ssa.gov/oact/COLA/cbb.html#Series)
 - [social_security_and_medicare_tax_rates.csv](https://www.ssa.gov/oact/progdata/taxRates.html)
 - nj_historical_tax_brackets.csv
-  - Gemini synthesis
+  - Gemini built it from research
